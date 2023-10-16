@@ -29,3 +29,13 @@ app.listen(PORT, () => {
     console.log("Database connection successful");
   });
 });
+
+connection.on("error", (err) => {
+  console.error("Database error:", err);
+  if (err.code === "PROTOCOL_CONNECTION_LOST") {
+    console.log("Reconnecting to the database...");
+    connection.connect();
+  } else {
+    throw err;
+  }
+});

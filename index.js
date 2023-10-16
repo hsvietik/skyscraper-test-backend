@@ -13,7 +13,7 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.get("/skyscraper", (req, res) => {
   let sql = "SELECT * FROM SKYSCRAPER";
   connection.query(sql, (err, results) => {
@@ -25,9 +25,9 @@ app.get("/skyscraper", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("Server running. Use our API on port: 3000");
-  // connection.connect((err) => {
-  //   if (err) console.log(err);
-  //   console.log("Database connection successful");
-  // });
+  console.log("Server running. Use our API on port: 3001");
+  connection.connect((err) => {
+    if (err) console.log(err);
+    console.log("Database connection successful");
+  });
 });

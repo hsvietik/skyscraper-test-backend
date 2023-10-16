@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "cross-env NODE_ENV=production node ./index.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,5 +17,8 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

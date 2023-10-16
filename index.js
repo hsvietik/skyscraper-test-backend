@@ -13,7 +13,8 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
-const PORT = process.env.PORT || 3001;
+
+const { PORT } = process.env;
 app.get("/skyscraper", (req, res) => {
   let sql = "SELECT * FROM SKYSCRAPER";
   connection.query(sql, (err, results) => {

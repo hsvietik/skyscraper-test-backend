@@ -7,7 +7,6 @@ const connection = mysql.createConnection({
   user: "root",
   password: MYSQL_PASSWORD,
   database: "skyscrappers",
-  insecureAuth: true,
   port: 3306,
 });
 

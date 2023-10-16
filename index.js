@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 const { PORT } = process.env;
-app.get("/", (req, res) => {
+app.get("/skyscraper", (req, res) => {
   let sql = "SELECT * FROM SKYSCRAPER";
   connection.query(sql, (err, results) => {
     if (err) console.log(err);

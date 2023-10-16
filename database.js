@@ -8,6 +8,7 @@ const connection = mysql.createConnection({
   password: MYSQL_PASSWORD,
   database: "skyscrappers",
   insecureAuth: true,
+  port: 3306,
 });
 
 module.exports = connection;

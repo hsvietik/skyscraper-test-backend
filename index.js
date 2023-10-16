@@ -13,16 +13,17 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
-
+const { PORT } = process.env;
 app.get("/", (req, res) => {
   let sql = "SELECT * FROM SKYSCRAPER";
   connection.query(sql, (results, err) => {
     if (err) throw err;
+    console.log(results);
     res.send(results);
   });
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server running. Use our API on port: 3000");
   connection.connect((err) => {
     if (err) throw err;

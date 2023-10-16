@@ -25,19 +25,7 @@ app.get("/skyscraper", (req, res) => {
 app.listen(PORT, () => {
   console.log("Server running. Use our API on port: 3000");
   connection.connect((err) => {
-    if (err) {
-      console.error("Error connecting to database:", err);
-    } else {
-      console.log("Database connection successful");
-    }
+    if (err) console.log(err);
+    console.log("Database connection successful");
   });
-});
-connection.on("error", (err) => {
-  console.error("Database error:", err);
-  if (err.code === "PROTOCOL_CONNECTION_LOST") {
-    console.log("Reconnecting to the database...");
-    connection.connect();
-  } else {
-    throw err;
-  }
 });

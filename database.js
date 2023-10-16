@@ -18,7 +18,7 @@ const connection = mysql.createPool({
   password: MYSQL_PASSWORD,
   database: "skyscrappers",
   port: 3306,
-  // connectionLimit: 10, // Adjust as needed
+  connectionLimit: 10, // Adjust as needed
 });
 
 module.exports = connection;

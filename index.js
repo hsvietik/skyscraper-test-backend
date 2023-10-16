@@ -16,9 +16,8 @@ app.use(express.static("public"));
 const { PORT } = process.env;
 app.get("/", (req, res) => {
   let sql = "SELECT * FROM SKYSCRAPER";
-  connection.query(sql, (results, err) => {
-    if (err) throw err;
-    console.log(results);
+  connection.query(sql, (err, results) => {
+    if (err) console.log(err);
     res.send(results);
   });
 });
@@ -26,7 +25,7 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log("Server running. Use our API on port: 3000");
   connection.connect((err) => {
-    if (err) throw err;
+    if (err) console.log(err);
     console.log("Database connection successful");
   });
 });
